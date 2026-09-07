@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely Men's Beauty Salon & Spa - Rajampet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            background: #1f1f1f;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d4af37;
+            text-transform: uppercase;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        nav a:hover {
+            color: #d4af37;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 38px;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            max-width: 600px;
+            color: #ddd;
+        }
+        .rating-badge {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .btn {
+            background: #d4af37;
+            color: #121212;
+            padding: 12px 25px;
+            border: none;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #fff;
+        }
+        .section {
+            padding: 50px 8%;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: #d4af37;
+            margin-bottom: 30px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: #1f1f1f;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .service-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+        }
+        .service-card i {
+            font-size: 35px;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        .service-card h3 {
+            margin-bottom: 8px;
+            color: #d4af37;
+        }
+        .booking-container {
+            background: #1f1f1f;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background: #2a2a2a;
+            color: #fff;
+            font-size: 16px;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        .success-msg {
+            display: none;
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            color: #28a745;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .success-msg a {
+            color: #4cd137;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .info-card {
+            background: #1f1f1f;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+        .info-card i {
+            font-size: 25px;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+        .info-card h3 {
+            margin-bottom: 8px;
+            color: #d4af37;
+        }
+        .map-link-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: 0.3s;
+        }
+        .map-link-card:hover .info-card {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            background: #252525;
+        }
+        .map-link-card p span {
+            color: #4cd137;
+            font-size: 13px;
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #777;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Lovely Salon & Spa</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#booking">Book Slot</a>
+            <a href="#info">Info</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="rating-badge">
+            <i class="fa-solid fa-star"></i> 4.3/5 Rating (67+ Google Reviews)
+        </div>
+        <h1>Elevate Your Look & Style</h1>
+        <p>Welcome to Lovely Men's Beauty Salon & Spa in Rajampet. Book your slot with our expert barbers instantly.</p>
+        <a href="#booking" class="btn"><i class="fa-solid fa-calendar-check"></i> Book Appointment Now</a>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title">Our Premium Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-scissors"></i>
+                <h3>Hair Styling & Cut</h3>
+                <p>Modern haircuts, professional beard trimming, and styling.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-spa"></i>
+                <h3>Facial & De-tan</h3>
+                <p>Refreshing skin care treatments and glowing facials.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-spray-can-sparkles"></i>
+                <h3>Hair Spa & Massage</h3>
+                <p>Relaxing head massage and dandruff care spa treatments.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-crown"></i>
+                <h3>Bridal & Grooming</h3>
+                <p>Special groom packages and total makeover styling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="booking">
+        <h2 class="section-title">Book Your Slot with Our Barbers</h2>
+        <div class="booking-container">
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Enter your mobile number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="serviceCategory">Select Service / Catalog</label>
+                    <select id="serviceCategory" required>
+                        <option value="">-- Choose Service --</option>
+                        <option value="Haircut & Styling">✂️ Haircut & Styling</option>
+                        <option value="Beard Trim & Setting">💈 Beard Trim & Setting</option>
+                        <option value="Facial & De-tan">🌿 Facial & De-tan</option>
+                        <option value="Hair Spa & Massage">💆 Hair Spa & Massage</option>
+                        <option value="Bridal Grooming Package">👑 Bridal & Grooming Package</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="barber">Preferred Stylist / Barber</label>
+                    <select id="barber" required>
+                        <option value="">-- Choose Barber --</option>
+                        <option value="Salman">Salman</option>
+                        <option value="Sannu">Sannu</option>
+                        <option value="Javidh">Javidh</option>
+                        <option value="Nagaraja (Owner)">Nagaraja (Owner)</option>
+                        <option value="New">New</option>
+                        <option value="Any Available Stylist">Any Available Stylist</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingDate">Select Date</label>
+                    <input type="date" id="bookingDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeSlot">Select Time</label>
+                    <input type="time" id="timeSlot" required>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">Confirm Booking via WhatsApp</button>
+            </form>
+            <div id="successMessage" class="success-msg">
+                🎉 Click here if WhatsApp doesn't open automatically: <br><a id="whatsappLink" href="#" target="_blank">Open WhatsApp Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="info">
+        <h2 class="section-title">Salon Information</h2>
+        <div class="info-container">
+            <div class="info-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Working Hours</h3>
+                <p>Mon - Sun: 7:00 AM – 9:30 PM</p>
+            </div>
+            
+            <a href="https://www.google.com/maps/search/?api=1&query=Lovely+Mens+Beauty+Salon+and+Spa+Rajampet" target="_blank" class="map-link-card">
+                <div class="info-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3>Location</h3>
+                    <p>Near Sivalayam Street, Rajampet<br><span>📍 Tap here for Google Maps Directions</span></p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Lovely Men's Beauty Salon & Spa, Rajampet. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleBooking(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const serviceCategory = document.getElementById('serviceCategory').value;
+            const barber = document.getElementById('barber').value;
+            const bookingDate = document.getElementById('bookingDate').value;
+            const timeSlot = document.getElementById('timeSlot').value;
+
+            const salonWhatsAppNumber = "919848808592"; 
+
+            const rawMessage = `✨ *New Salon Booking Request* ✨\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Service:* ${serviceCategory}\n*Stylist:* ${barber}\n*Date:* ${bookingDate}\n*Time Slot:* ${timeSlot}`;
+            
+            const encodedMessage = encodeURIComponent(rawMessage);
+
+            const successDiv = document.getElementById('successMessage');
+            const waAnchor = document.getElementById('whatsappLink');
+            const whatsappUrl = `https://wa.me/${salonWhatsAppNumber}?text=${encodedMessage}`;
+            
+            waAnchor.href = whatsappUrl;
+            successDiv.style.display = 'block';
+
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
